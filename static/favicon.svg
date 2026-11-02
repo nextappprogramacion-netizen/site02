@@ -1,0 +1,24 @@
+<svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<defs>
+		<linearGradient id="favGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+			<stop offset="0%" stop-color="#38bdf8" />
+			<stop offset="100%" stop-color="#2563eb" />
+		</linearGradient>
+		<linearGradient id="favGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+			<stop offset="0%" stop-color="#0284c7" />
+			<stop offset="100%" stop-color="#1e3a8a" />
+		</linearGradient>
+		<linearGradient id="favGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+			<stop offset="0%" stop-color="#60a5fa" />
+			<stop offset="100%" stop-color="#0284c7" />
+		</linearGradient>
+	</defs>
+	<rect width="36" height="36" rx="8" fill="#050b1d" />
+	<!-- Left wing -->
+	<path d="M7 27L17 9L14 7L4 25L7 27Z" fill="url(#favGrad1)"/>
+	<!-- Diagonal cross -->
+	<path d="M12 27L26 11L29 13L15 29L12 27Z" fill="url(#favGrad2)"/>
+	<!-- Central fold -->
+	<polygon points="14,14 25,10 19,23" fill="url(#favGrad3)" opacity="0.95"/>
+	<polygon points="9,25 16,16 18,25" fill="#38bdf8" opacity="0.85"/>
+</svg>
