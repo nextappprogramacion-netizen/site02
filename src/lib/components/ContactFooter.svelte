@@ -34,21 +34,21 @@
 </script>
 
 <!-- Contacto Section -->
-<section id="contacto" class="py-16 md:py-24 bg-white relative">
+<section id="contacto" class="py-14 sm:py-16 lg:py-20 bg-white relative scroll-mt-[56px] sm:scroll-mt-[62px]">
 	<!-- Hidden anchor for backwards compatibility -->
 	<div id="contact" class="absolute -top-10 opacity-0 pointer-events-none"></div>
 
 	<div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
 		<!-- Section Header -->
-		<h2 class="text-3xl sm:text-4xl font-extrabold text-[#0e172e] tracking-tight">
+		<h2 class="text-[28px] sm:text-4xl lg:text-[42px] xl:text-[46px] font-extrabold text-[#0e172e] tracking-tight">
 			Contáctanos
 		</h2>
-		<p class="text-base sm:text-lg text-slate-500 font-medium mt-3">
+		<p class="text-base sm:text-lg lg:text-[20px] xl:text-[21px] text-slate-500 font-medium mt-3">
 			¿Listo para impulsar la presencia digital de tu marca? <span class="text-blue-600 font-semibold">¡Hablemos hoy!</span>
 		</p>
 
 		<!-- Trust / Info Pills for Peru -->
-		<div class="mt-8 flex flex-wrap justify-center gap-4 text-xs sm:text-sm text-slate-600">
+		<div class="mt-8 flex flex-wrap justify-center gap-3.5 sm:gap-4 text-xs sm:text-sm lg:text-[15px] text-slate-600">
 			<div class="flex items-center gap-2 bg-slate-50 border border-slate-200/80 px-4 py-2 rounded-full shadow-sm">
 				<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
 				<span>Respuesta en menos de 24h</span>
@@ -68,48 +68,48 @@
 		</div>
 
 		<!-- Direct Contact Channels Cards -->
-		<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10 text-left">
+		<div class="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-10 text-left">
 			<!-- Teléfono / WhatsApp -->
-			<div class="bg-slate-50/80 p-4 rounded-xl border border-slate-200/70 flex items-center gap-3">
-				<div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
-					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			<div class="bg-slate-50/80 p-5 sm:p-6 rounded-2xl border border-slate-200/70 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow">
+				<div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
 					</svg>
 				</div>
 				<div>
-					<div class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">WhatsApp & Llamadas</div>
-					<a href={LIMA_LOCALE_CONFIG.contact.whatsappLink} target="_blank" rel="noopener noreferrer" class="text-sm font-bold text-slate-800 hover:text-blue-600 transition-colors">
+					<div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">WhatsApp & Llamadas</div>
+					<a href={LIMA_LOCALE_CONFIG.contact.whatsappLink} target="_blank" rel="noopener noreferrer" class="text-base sm:text-[17px] font-bold text-slate-800 hover:text-blue-600 transition-colors">
 						{LIMA_LOCALE_CONFIG.contact.phoneDisplay}
 					</a>
 				</div>
 			</div>
 
 			<!-- Ubicación Lima -->
-			<div class="bg-slate-50/80 p-4 rounded-xl border border-slate-200/70 flex items-center gap-3">
-				<div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
-					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			<div class="bg-slate-50/80 p-5 sm:p-6 rounded-2xl border border-slate-200/70 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow">
+				<div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center shrink-0">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
 					</svg>
 				</div>
 				<div>
-					<div class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Sede Principal</div>
-					<div class="text-sm font-bold text-slate-800">
+					<div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Sede Principal</div>
+					<div class="text-base sm:text-[17px] font-bold text-slate-800">
 						Miraflores, Lima · Perú
 					</div>
 				</div>
 			</div>
 
 			<!-- Correo -->
-			<div class="bg-slate-50/80 p-4 rounded-xl border border-slate-200/70 flex items-center gap-3">
-				<div class="w-10 h-10 rounded-lg bg-cyan-100 text-cyan-700 flex items-center justify-center shrink-0">
-					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			<div class="bg-slate-50/80 p-5 sm:p-6 rounded-2xl border border-slate-200/70 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow">
+				<div class="w-12 h-12 rounded-xl bg-cyan-100 text-cyan-700 flex items-center justify-center shrink-0">
+					<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
 					</svg>
 				</div>
 				<div>
-					<div class="text-[11px] font-semibold text-slate-500 uppercase tracking-wider">Correo Electrónico</div>
-					<a href="mailto:{LIMA_LOCALE_CONFIG.contact.email}" class="text-sm font-bold text-slate-800 hover:text-blue-600 transition-colors">
+					<div class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Correo Electrónico</div>
+					<a href="mailto:{LIMA_LOCALE_CONFIG.contact.email}" class="text-base sm:text-[17px] font-bold text-slate-800 hover:text-blue-600 transition-colors">
 						{LIMA_LOCALE_CONFIG.contact.email}
 					</a>
 				</div>

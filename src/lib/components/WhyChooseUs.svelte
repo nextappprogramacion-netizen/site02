@@ -31,7 +31,10 @@
 	];
 </script>
 
-<section id="nosotros" class="py-20 md:py-24 bg-slate-50/60 relative overflow-hidden">
+<section
+	id="nosotros"
+	class="relative overflow-hidden bg-slate-50/60 scroll-mt-[56px] sm:scroll-mt-[62px] py-14 sm:py-16 lg:py-20"
+>
 	<!-- Hidden anchor for backwards compatibility -->
 	<div id="pourquoi-nous" class="absolute -top-10 opacity-0 pointer-events-none"></div>
 
@@ -43,33 +46,33 @@
 		</svg>
 	</div>
 
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
 		
 		<!-- Section Header with dividing horizontal lines matching reference -->
-		<div class="text-center max-w-3xl mx-auto mb-14 sm:mb-16">
+		<div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-14">
 			<div class="flex items-center justify-center gap-4">
-				<div class="w-10 sm:w-16 h-[1.5px] bg-slate-300"></div>
-				<h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#0e172e] tracking-tight">
+				<div class="w-10 sm:w-16 lg:w-20 h-[1.5px] bg-slate-300"></div>
+				<h2 class="text-[28px] sm:text-4xl lg:text-[42px] xl:text-[46px] font-extrabold text-[#0e172e] tracking-tight">
 					¿Por Qué Elegir NovaLyne?
 				</h2>
-				<div class="w-10 sm:w-16 h-[1.5px] bg-slate-300"></div>
+				<div class="w-10 sm:w-16 lg:w-20 h-[1.5px] bg-slate-300"></div>
 			</div>
-			<p class="text-base sm:text-lg text-slate-500 font-medium mt-3">
+			<p class="text-base sm:text-lg lg:text-[20px] xl:text-[21px] text-slate-500 font-medium mt-3">
 				Aliados estratégicos en diseño web y crecimiento digital para empresas en Lima y todo el Perú
 			</p>
 		</div>
 
 		<!-- 4 Feature Cards Grid matching reference -->
-		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
 			{#each reasons as item}
 				<div
-					class="group bg-white rounded-2xl p-6 sm:p-7 shadow-[0_8px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_35px_rgba(0,102,255,0.12)] border border-slate-100 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col items-center text-center relative overflow-hidden"
+					class="group bg-white rounded-2xl p-6 sm:p-7 lg:p-8 shadow-[0_8px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_16px_35px_rgba(0,102,255,0.12)] border border-slate-100 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col items-center text-center relative overflow-hidden"
 				>
 					<!-- Top soft glow on hover -->
 					<div class="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
 					<!-- Icon Container with 3D gradient look matching reference -->
-					<div class="w-16 h-16 rounded-2xl bg-gradient-to-b from-blue-50 to-blue-100/50 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-sm border border-blue-100/80">
+					<div class="w-16 h-16 sm:w-18 sm:h-18 lg:w-20 lg:h-20 rounded-2xl bg-gradient-to-b from-blue-50 to-blue-100/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-sm border border-blue-100/80">
 						
 						{#if item.icon === 'lightbulb'}
 							<!-- Lightbulb Icon (Expertise & Innovation) -->
@@ -146,13 +149,13 @@
 					</div>
 
 					<!-- Text Content -->
-					<h3 class="text-base sm:text-lg font-bold text-[#0e172e] mb-1.5 group-hover:text-blue-600 transition-colors">
+					<h3 class="text-lg sm:text-xl lg:text-[21px] font-bold text-[#0e172e] mb-2 group-hover:text-blue-600 transition-colors">
 						{item.title}
 					</h3>
-					<div class="text-xs font-semibold text-blue-600 mb-2">
+					<div class="text-xs sm:text-[13px] lg:text-[14px] font-semibold text-blue-600 mb-2.5">
 						{item.description}
 					</div>
-					<p class="text-xs sm:text-[13px] text-slate-500 leading-relaxed">
+					<p class="text-sm sm:text-[15px] lg:text-[17px] text-slate-500 leading-relaxed">
 						{item.detail}
 					</p>
 

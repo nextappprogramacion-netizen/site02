@@ -1,24 +1,19 @@
-<svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-	<defs>
-		<linearGradient id="favGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-			<stop offset="0%" stop-color="#38bdf8" />
-			<stop offset="100%" stop-color="#2563eb" />
-		</linearGradient>
-		<linearGradient id="favGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-			<stop offset="0%" stop-color="#0284c7" />
-			<stop offset="100%" stop-color="#1e3a8a" />
-		</linearGradient>
-		<linearGradient id="favGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
-			<stop offset="0%" stop-color="#60a5fa" />
-			<stop offset="100%" stop-color="#0284c7" />
-		</linearGradient>
-	</defs>
-	<rect width="36" height="36" rx="8" fill="#050b1d" />
-	<!-- Left wing -->
-	<path d="M7 27L17 9L14 7L4 25L7 27Z" fill="url(#favGrad1)"/>
-	<!-- Diagonal cross -->
-	<path d="M12 27L26 11L29 13L15 29L12 27Z" fill="url(#favGrad2)"/>
-	<!-- Central fold -->
-	<polygon points="14,14 25,10 19,23" fill="url(#favGrad3)" opacity="0.95"/>
-	<polygon points="9,25 16,16 18,25" fill="#38bdf8" opacity="0.85"/>
+<svg viewBox="0 0 48 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<rect width="48" height="44" rx="10" fill="#071224" />
+	<!-- Upper Wing (Turquoise) -->
+	<polygon points="4,6 24,13 10,16" fill="#39D6E5" />
+	<!-- Lower Wing Fold (Teal) -->
+	<polygon points="10,16 24,13 19,21" fill="#1C879B" />
+	<!-- Head & Beak (Bright Royal Blue) -->
+	<polygon points="24,13 29.5,6.5 34.5,6.5 45,7 35.5,11.5 34,15" fill="#1677F0" />
+	<!-- Eye -->
+	<circle cx="32.2" cy="9.2" r="1.1" fill="#071224" />
+	<!-- Right Breast Facet -->
+	<polygon points="24,13 34,15 31.5,25" fill="#115BB2" />
+	<!-- Center Body Facet -->
+	<polygon points="24,13 31.5,25 19,21" fill="#1C88FA" />
+	<!-- Upper Tail Facet -->
+	<polygon points="19,21 31.5,25 15.5,29" fill="#116CEB" />
+	<!-- Lower Tail Tip Facet -->
+	<polygon points="15.5,29 31.5,25 11,37.5" fill="#1052B0" />
 </svg>

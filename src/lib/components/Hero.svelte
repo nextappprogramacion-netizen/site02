@@ -1,11 +1,21 @@
 <script lang="ts">
 	interface Props {
+		onOpenQuote?: () => void;
 		onDiscoverServices?: () => void;
 	}
 
-	let { onDiscoverServices }: Props = $props();
+	let { onOpenQuote, onDiscoverServices }: Props = $props();
 
-	function scrollToServices() {
+	function handleRequestQuote() {
+		if (onOpenQuote) {
+			onOpenQuote();
+		} else {
+			const el = document.getElementById('contacto') || document.getElementById('contact');
+			el?.scrollIntoView({ behavior: 'smooth' });
+		}
+	}
+
+	function handleDiscoverServices() {
 		if (onDiscoverServices) {
 			onDiscoverServices();
 		} else {
@@ -17,237 +27,223 @@
 
 <section
 	id="hero"
-	class="relative min-h-[92vh] pt-28 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-[#050b1d] text-white flex items-center"
+	class="relative w-full bg-[#071224] text-white overflow-hidden font-['Inter',sans-serif] min-h-[100svh] flex flex-col justify-between scroll-mt-0"
 >
-	<!-- Background glow effects & tech grid -->
-	<div class="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none"></div>
+	<!-- Anchor alias for Inicio -->
+	<div id="inicio" class="absolute top-0 left-0 pointer-events-none"></div>
 
-	<!-- Glowing Orb / Planet behind devices -->
-	<div
-		class="absolute top-1/4 right-[5%] sm:right-[15%] w-72 h-72 md:w-96 md:h-96 rounded-full bg-radial from-cyan-500/20 via-blue-600/15 to-transparent blur-3xl pointer-events-none animate-pulse-soft"
-	></div>
-	
-	<div
-		class="absolute top-1/3 left-1/4 w-80 h-80 rounded-full bg-blue-700/10 blur-3xl pointer-events-none"
-	></div>
+	<!-- Continuous background base (full-width navy background) -->
+	<div class="absolute inset-0 bg-[#071224] pointer-events-none"></div>
 
-	<!-- Planet Sphere Graphic in upper right -->
+	<!-- Desktop Image Composition (lg+) positioned with full-width container access -->
 	<div
-		class="hidden lg:block absolute top-16 right-[28%] w-28 h-28 rounded-full pointer-events-none opacity-80"
-		style="background: radial-gradient(circle at 30% 30%, #a5f3fc 0%, #0284c7 40%, #0c4a6e 80%, #082f49 100%); box-shadow: 0 0 35px rgba(56, 189, 248, 0.45), inset -8px -8px 20px rgba(0, 0, 0, 0.8);"
+		class="hidden lg:flex lg:absolute lg:top-0 lg:right-0 lg:bottom-0 lg:w-[50%] xl:w-[52%] 2xl:w-[52%] max-w-[1300px] items-center justify-end pointer-events-none select-none z-0 overflow-hidden"
 	>
-		<!-- Atmospheric ring/glow -->
-		<div class="absolute inset-[-4px] rounded-full border border-cyan-400/30 blur-[1px]"></div>
+		<div class="relative w-full h-full flex items-center justify-end">
+			<img
+				src="/images/hero-workspace.png"
+				alt="Ambiente tecnológico profesional con monitor mostrando sitio web corporativo, laptop con código y equipos informáticos"
+				class="w-full h-full object-cover object-left lg:object-center xl:object-right-bottom max-h-[820px] transition-opacity duration-300"
+				width="644"
+				height="453"
+				fetchpriority="high"
+			/>
+
+			<!-- Gradient mask overlays for 100% seamless integration with #071224 -->
+			<!-- Left fade: broad gentle dissolution of the wall behind texts/buttons -->
+			<div
+				class="absolute inset-y-0 left-0 w-36 sm:w-48 lg:w-64 xl:w-80 bg-gradient-to-r from-[#071224] via-[#071224]/90 to-transparent pointer-events-none z-10"
+			></div>
+
+			<!-- Right fade: completely eliminates any vertical cut on large screens -->
+			<div
+				class="absolute inset-y-0 right-0 w-28 sm:w-36 lg:w-48 xl:w-60 bg-gradient-to-l from-[#071224] via-[#071224]/85 to-transparent pointer-events-none z-10"
+			></div>
+
+			<!-- Bottom fade: desk softly dissolves into the dark section footer -->
+			<div
+				class="absolute bottom-0 inset-x-0 h-16 sm:h-24 bg-gradient-to-t from-[#071224] via-[#071224]/60 to-transparent pointer-events-none z-10"
+			></div>
+
+			<!-- Top fade: smooth tone under the header -->
+			<div
+				class="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-[#071224]/70 to-transparent pointer-events-none z-10"
+			></div>
+		</div>
 	</div>
 
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-		<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-			
-			<!-- Left column: Typography & CTA -->
-			<div class="lg:col-span-5 text-left space-y-6">
-				<!-- Subtitle / Eyebrow badge with Peru flag accent -->
-				<div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/30 text-xs font-semibold text-cyan-300">
-					<span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-					<span>Agencia Digital · Lima, Perú</span>
-				</div>
-
-				<h1 class="text-4xl sm:text-5xl lg:text-[3.25rem] font-extrabold tracking-tight text-white leading-[1.15]">
-					Impulsa Tu <br class="hidden sm:inline" />
-					<span class="text-white drop-shadow-md">Presencia en Línea</span>
-				</h1>
-
-				<p class="text-base sm:text-lg text-slate-300 font-normal max-w-xl leading-relaxed">
-					Soluciones Digitales Innovadoras para Tu Empresa. Diseñamos páginas web de alto impacto, tiendas virtuales e impulsamos estrategias de marketing digital para marcas en Perú y el mundo.
+	<!-- Content Grid (Expanded 92% container up to 1500px, aligned with Navbar) -->
+	<div
+		class="relative z-10 w-[92%] max-w-[1500px] mx-auto px-2 sm:px-4 lg:px-6 pt-22 sm:pt-28 lg:pt-[106px] xl:pt-[116px] pb-6 sm:pb-8 lg:pb-12 flex-1 flex flex-col justify-center"
+	>
+		<div class="w-full lg:w-[52%] xl:w-[50%] max-w-[660px] xl:max-w-[720px] text-left">
+			<!-- Top Eyebrow Text with Turquoise Accent Line -->
+			<div class="flex items-center gap-2.5 sm:gap-3.5 mb-3.5 sm:mb-4">
+				<span class="w-8 sm:w-12 h-[2px] bg-[#31B6AD] shrink-0 rounded-full"></span>
+				<p
+					class="text-[10.5px] sm:text-[12px] xl:text-[12.5px] font-semibold tracking-[0.12em] sm:tracking-[0.16em] uppercase text-[#CBD5E1]/90"
+				>
+					DESARROLLO WEB · SOLUCIONES TI · TECNOLOGÍA
 				</p>
+			</div>
 
-				<!-- Buttons -->
-				<div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-					<button
-						type="button"
-						onclick={scrollToServices}
-						class="cursor-pointer inline-flex items-center justify-center px-6 py-3.5 rounded-lg text-sm sm:text-base font-semibold text-white bg-gradient-to-r from-[#0066ff] to-[#0052cc] hover:from-[#0052cc] hover:to-[#0041b8] shadow-[0_8px_25px_rgba(0,102,255,0.45)] hover:shadow-[0_10px_30px_rgba(0,102,255,0.65)] transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+			<!-- Main Heading with Fluid Typography (64-72px on Desktop) & Responsive Line-Height -->
+			<h1
+				class="text-[clamp(1.875rem,3.75vw+0.75rem,4.5rem)] font-extrabold tracking-[-0.03em] leading-[1.08] sm:leading-[1.06] text-white font-['Manrope','Inter',sans-serif]"
+			>
+				<span class="sm:whitespace-nowrap">Tecnología que impulsa</span>
+				<span class="block text-[#4FB4F8] mt-1 sm:mt-1.5">tu negocio.</span>
+			</h1>
+
+			<!-- Description with Proportional Scale (18-20px on Desktop) and Refined Measure -->
+			<p
+				class="mt-4 sm:mt-5 text-[clamp(0.95rem,0.65vw+0.75rem,1.25rem)] text-[#CBD5E1] font-normal leading-[1.62] max-w-[560px] xl:max-w-[640px]"
+			>
+				Diseñamos sitios web, implementamos soluciones informáticas y suministramos equipos
+				tecnológicos para que tu empresa avance con confianza.
+			</p>
+
+			<!-- CTA Buttons with Proportionally Scaled Sizes and Unified Arrows -->
+			<div
+				class="mt-7 sm:mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-6"
+			>
+				<!-- Primary Button: Solicitar cotización -->
+				<button
+					type="button"
+					onclick={handleRequestQuote}
+					class="cursor-pointer min-h-[48px] sm:min-h-[52px] group inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 rounded-xl text-[15px] sm:text-[16px] xl:text-[16.5px] font-semibold text-white bg-[#0A6DF3] hover:bg-[#1A77F5] active:bg-[#085FD8] shadow-[0_4px_16px_rgba(10,109,243,0.38)] hover:shadow-[0_6px_24px_rgba(10,109,243,0.52)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#38BDF8] focus-visible:ring-offset-2 focus-visible:ring-offset-[#071224]"
+				>
+					<span>Solicitar cotización</span>
+					<svg
+						class="w-4.5 h-4.5 xl:w-5 xl:h-5 shrink-0 transition-transform duration-200 group-hover:translate-x-1"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						viewBox="0 0 24 24"
 					>
-						Descubre Nuestros Servicios
-						<svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-						</svg>
-					</button>
+						<path d="M5 12h14m-6-6l6 6-6 6" />
+					</svg>
+				</button>
 
-					<a
-						href="#proyectos"
-						class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg text-sm sm:text-base font-medium text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 border border-slate-700/60 transition-colors"
+				<!-- Secondary Button: Conocer servicios -->
+				<button
+					type="button"
+					onclick={handleDiscoverServices}
+					class="cursor-pointer min-h-[46px] sm:min-h-[50px] group inline-flex items-center justify-center sm:justify-start gap-2.5 px-4 sm:px-4 py-3 sm:py-3.5 -ml-0 sm:-ml-2 rounded-xl text-[15px] sm:text-[16px] xl:text-[16.5px] font-semibold text-white/90 hover:text-white hover:bg-white/[0.06] active:bg-white/[0.1] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[#071224]"
+				>
+					<span>Conocer servicios</span>
+					<svg
+						class="w-4.5 h-4.5 xl:w-5 xl:h-5 shrink-0 text-white/80 group-hover:text-white transition-all duration-200 group-hover:translate-x-1"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						viewBox="0 0 24 24"
 					>
-						Nuestros Proyectos
-					</a>
-				</div>
+						<path d="M5 12h14m-6-6l6 6-6 6" />
+					</svg>
+				</button>
+			</div>
 
-				<!-- Mini Trust Badges tailored for Lima, Peru -->
-				<div class="pt-6 border-t border-slate-800/80 flex flex-wrap items-center gap-5 text-xs text-slate-400">
-					<div class="flex items-center gap-2">
-						<svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
-							<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+			<!-- Bottom 3 Indicators with Proportionally Scaled Icons & Symmetrical Distribution -->
+			<div class="mt-8 sm:mt-10 xl:mt-11 pt-5 sm:pt-6 border-t border-white/[0.14] w-full max-w-[540px] xl:max-w-[620px]">
+				<div
+					class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3.5 sm:gap-2 w-full"
+				>
+					<!-- Indicator 1: Desarrollo web -->
+					<div class="flex items-center gap-3">
+						<svg
+							class="w-6 h-6 sm:w-7 sm:h-7 xl:w-[30px] xl:h-[30px] text-[#38D3E3] shrink-0"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.75"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<rect x="3" y="4" width="18" height="12" rx="2" />
+							<path d="M2 19h20" />
 						</svg>
-						<span>Diseño 100% a Medida</span>
+						<span class="text-[13px] sm:text-[14px] xl:text-[14.5px] font-semibold text-white/95 whitespace-nowrap">
+							Desarrollo web
+						</span>
 					</div>
-					<div class="flex items-center gap-2">
-						<svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
-							<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+
+					<!-- Vertical Divider 1 -->
+					<div class="hidden sm:block h-7 xl:h-8 w-px bg-white/[0.16] shrink-0"></div>
+
+					<!-- Indicator 2: Soluciones informáticas -->
+					<div class="flex items-center gap-3">
+						<svg
+							class="w-6 h-6 sm:w-7 sm:h-7 xl:w-[30px] xl:h-[30px] text-[#38D3E3] shrink-0"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.75"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<circle cx="12" cy="12" r="3" />
+							<path
+								d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
+							/>
 						</svg>
-						<span>Optimizado para SEO Perú</span>
+						<span class="text-[13px] sm:text-[13.5px] xl:text-[14px] sm:leading-[1.25] font-semibold text-white/95">
+							Soluciones <br class="hidden sm:inline" />informáticas
+						</span>
 					</div>
-					<div class="flex items-center gap-2">
-						<svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
-							<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+
+					<!-- Vertical Divider 2 -->
+					<div class="hidden sm:block h-7 xl:h-8 w-px bg-white/[0.16] shrink-0"></div>
+
+					<!-- Indicator 3: Equipos tecnológicos -->
+					<div class="flex items-center gap-3">
+						<svg
+							class="w-6 h-6 sm:w-7 sm:h-7 xl:w-[30px] xl:h-[30px] text-[#38D3E3] shrink-0"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="1.75"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+						>
+							<polygon points="12 2 2 7 12 12 22 7 12 2" />
+							<path d="M2 12l10 5 10-5" />
+							<path d="M2 17l10 5 10-5" />
 						</svg>
-						<span>Horario Lima (GMT-5)</span>
+						<span class="text-[13px] sm:text-[13.5px] xl:text-[14px] sm:leading-[1.25] font-semibold text-white/95">
+							Equipos <br class="hidden sm:inline" />tecnológicos
+						</span>
 					</div>
 				</div>
 			</div>
-
-			<!-- Right column: Modern Multi-Device Tech Mockup -->
-			<div class="lg:col-span-7 relative flex justify-center items-center mt-6 lg:mt-0">
-				
-				<!-- Ambient glow behind laptop -->
-				<div class="absolute -inset-4 bg-gradient-to-tr from-blue-600/25 via-cyan-500/20 to-indigo-600/10 rounded-3xl blur-2xl transform -rotate-1 pointer-events-none"></div>
-
-				<!-- Device Composition Container -->
-				<div class="relative w-full max-w-2xl animate-float-slow">
-					
-					<!-- Modern 3D-styled Laptop -->
-					<div class="relative mx-auto rounded-t-2xl bg-[#0f172a] border-[3px] border-slate-700/80 shadow-[0_25px_60px_-15px_rgba(0,102,255,0.4)] overflow-hidden">
-						
-						<!-- Laptop Screen Top Bar -->
-						<div class="bg-[#1e293b] px-4 py-2 border-b border-slate-700/80 flex items-center justify-between">
-							<div class="flex items-center gap-1.5">
-								<div class="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-								<div class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></div>
-								<div class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></div>
-							</div>
-							<!-- Search bar fake -->
-							<div class="bg-[#0f172a] text-slate-400 text-[11px] px-6 py-0.5 rounded-md flex items-center gap-2 border border-slate-700/60 w-1/2 justify-center">
-								<svg class="w-3 h-3 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-								</svg>
-								https://novalyne.pe/dashboard
-							</div>
-							<div class="w-8"></div>
-						</div>
-
-						<!-- Laptop Display Content (Modern Dashboard Preview in Soles) -->
-						<div class="bg-gradient-to-br from-[#0c1533] via-[#091129] to-[#060b1c] p-4 sm:p-6 text-left min-h-[250px] sm:min-h-[310px]">
-							<!-- Dashboard Header -->
-							<div class="flex items-center justify-between pb-4 border-b border-blue-900/40">
-								<div class="flex items-center gap-3">
-									<div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center font-bold text-white text-xs">
-										NL
-									</div>
-									<div>
-										<div class="text-xs font-semibold text-white">Panel de Rendimiento Digital</div>
-										<div class="text-[10px] text-cyan-400">Tráfico y ROI Perú: +248%</div>
-									</div>
-								</div>
-								<div class="flex items-center gap-2">
-									<span class="px-2.5 py-1 rounded bg-blue-500/20 text-cyan-300 text-[11px] font-medium border border-blue-400/30 flex items-center gap-1.5">
-										<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-										Campaña Activa
-									</span>
-								</div>
-							</div>
-
-							<!-- Dashboard Grid with Peruvian Currency S/. -->
-							<div class="grid grid-cols-3 gap-3 mt-4">
-								<div class="bg-[#121c42]/80 border border-blue-800/40 rounded-xl p-3">
-									<div class="text-[10px] text-slate-400">Visitas Mensuales</div>
-									<div class="text-sm sm:text-base font-bold text-white mt-1">128.4K</div>
-									<div class="text-[10px] text-emerald-400 font-medium flex items-center gap-1 mt-0.5">
-										<span>↑ 32.4%</span> este mes
-									</div>
-								</div>
-								<div class="bg-[#121c42]/80 border border-blue-800/40 rounded-xl p-3">
-									<div class="text-[10px] text-slate-400">Tasa de Conversión</div>
-									<div class="text-sm sm:text-base font-bold text-cyan-300 mt-1">4.82%</div>
-									<div class="text-[10px] text-emerald-400 font-medium flex items-center gap-1 mt-0.5">
-										<span>↑ 18.2%</span> vs mercado
-									</div>
-								</div>
-								<div class="bg-[#121c42]/80 border border-blue-800/40 rounded-xl p-3">
-									<div class="text-[10px] text-slate-400">Ventas Generadas</div>
-									<div class="text-sm sm:text-base font-bold text-emerald-300 mt-1">S/ 84,920</div>
-									<div class="text-[10px] text-cyan-400 font-medium flex items-center gap-1 mt-0.5">
-										Meta superada
-									</div>
-								</div>
-							</div>
-
-							<!-- Hero image banner inside laptop -->
-							<div class="mt-4 rounded-xl overflow-hidden relative border border-blue-500/30 bg-gradient-to-r from-blue-900/60 to-indigo-900/60 p-4 flex items-center justify-between">
-								<div class="space-y-1">
-									<div class="text-xs font-bold text-white">Tienda Virtual E-Commerce</div>
-									<div class="text-[10px] text-slate-300">Integración pasarelas: Yape, Plin & Tarjetas</div>
-								</div>
-								<div class="flex items-center gap-2">
-									<!-- Visual mini graph bars -->
-									<div class="flex items-end gap-1 h-8">
-										<div class="w-1.5 bg-blue-500 rounded-t h-4"></div>
-										<div class="w-1.5 bg-blue-400 rounded-t h-6"></div>
-										<div class="w-1.5 bg-cyan-400 rounded-t h-8"></div>
-										<div class="w-1.5 bg-blue-300 rounded-t h-5"></div>
-										<div class="w-1.5 bg-cyan-300 rounded-t h-7"></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Laptop Base & Keyboard Shelf -->
-					<div class="relative w-[108%] -left-[4%] h-3.5 sm:h-4 bg-gradient-to-b from-slate-700 via-slate-800 to-slate-900 rounded-b-xl shadow-2xl border-t border-slate-600 flex items-center justify-center">
-						<div class="w-16 h-1 bg-slate-950 rounded-full opacity-60"></div>
-					</div>
-					<!-- Laptop Bottom Lip Reflection -->
-					<div class="w-[96%] mx-auto h-2 bg-gradient-to-r from-transparent via-cyan-500/30 to-transparent blur-sm"></div>
-
-					<!-- Angled Mobile Device floating in front on the right -->
-					<div
-						class="absolute -bottom-6 sm:-bottom-8 right-0 sm:right-2 w-36 sm:w-48 rounded-[28px] bg-slate-950 border-4 border-slate-800 p-2 shadow-[0_20px_45px_rgba(0,0,0,0.8),0_0_25px_rgba(0,102,255,0.4)] transform rotate-6 hover:rotate-2 transition-transform duration-300"
-					>
-						<!-- Mobile notch / camera -->
-						<div class="w-14 h-3 bg-black mx-auto rounded-full mb-1 flex items-center justify-center">
-							<div class="w-1.5 h-1.5 rounded-full bg-slate-800"></div>
-						</div>
-
-						<!-- Screen Content -->
-						<div class="bg-gradient-to-b from-[#0a122e] to-[#040817] rounded-[20px] p-2.5 text-left border border-blue-900/50 space-y-2">
-							<div class="flex items-center justify-between">
-								<span class="text-[9px] font-bold text-white">NovaLyne App</span>
-								<div class="w-2 h-2 rounded-full bg-emerald-400"></div>
-							</div>
-							
-							<div class="rounded-lg bg-blue-600/30 border border-blue-500/40 p-2">
-								<div class="text-[8px] text-cyan-300 font-semibold">Campaña Google Ads Perú</div>
-								<div class="text-[11px] font-bold text-white">+340% Clics</div>
-							</div>
-
-							<!-- Mini cards -->
-							<div class="space-y-1">
-								<div class="flex items-center gap-1.5 bg-white/5 p-1 rounded">
-									<div class="w-3.5 h-3.5 rounded bg-blue-500 flex items-center justify-center text-[7px] text-white">✓</div>
-									<span class="text-[8px] text-slate-300">Posicionamiento SEO</span>
-								</div>
-								<div class="flex items-center gap-1.5 bg-white/5 p-1 rounded">
-									<div class="w-3.5 h-3.5 rounded bg-cyan-500 flex items-center justify-center text-[7px] text-white">★</div>
-									<span class="text-[8px] text-slate-300">Diseño Móvil First</span>
-								</div>
-							</div>
-
-							<button class="w-full bg-[#0066ff] text-[8px] font-bold text-white py-1 rounded shadow-sm">
-								Ver Proyecto
-							</button>
-						</div>
-					</div>
-
-				</div>
-			</div>
-
 		</div>
+	</div>
+
+	<!-- Mobile & Tablet Workspace Visual (< lg) -->
+	<div class="lg:hidden relative w-full max-w-[580px] mx-auto mt-6 sm:mt-8 px-3 sm:px-6 overflow-hidden">
+		<!-- Multi-directional smooth gradient blend on mobile -->
+		<div
+			class="absolute top-0 inset-x-0 h-10 sm:h-14 bg-gradient-to-b from-[#071224] to-transparent z-10 pointer-events-none"
+		></div>
+		<div
+			class="absolute bottom-0 inset-x-0 h-12 sm:h-16 bg-gradient-to-t from-[#071224] via-[#071224]/85 to-transparent z-10 pointer-events-none"
+		></div>
+		<div
+			class="absolute inset-y-0 left-0 w-6 sm:w-16 bg-gradient-to-r from-[#071224] to-transparent z-10 pointer-events-none"
+		></div>
+		<div
+			class="absolute inset-y-0 right-0 w-6 sm:w-16 bg-gradient-to-l from-[#071224] to-transparent z-10 pointer-events-none"
+		></div>
+		<img
+			src="/images/hero-workspace.png"
+			alt="Ambiente tecnológico profesional con monitor mostrando sitio web corporativo, laptop con código y equipos informáticos"
+			class="w-full h-auto object-cover rounded-lg sm:rounded-xl"
+			width="644"
+			height="453"
+		/>
 	</div>
 </section>

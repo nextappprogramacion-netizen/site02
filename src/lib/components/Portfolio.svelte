@@ -50,7 +50,10 @@
 	}
 </script>
 
-<section id="proyectos" class="py-20 md:py-28 bg-gradient-to-b from-white via-slate-50 to-white relative overflow-hidden">
+<section
+	id="proyectos"
+	class="relative overflow-hidden bg-gradient-to-b from-white via-slate-50 to-white scroll-mt-[56px] sm:scroll-mt-[62px] py-14 sm:py-16 lg:py-20"
+>
 	<!-- Hidden anchor for backwards compatibility -->
 	<div id="realisations" class="absolute -top-10 opacity-0 pointer-events-none"></div>
 
@@ -62,28 +65,28 @@
 		</svg>
 	</div>
 
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
 		
 		<!-- Section Header with dividing horizontal lines matching reference -->
-		<div class="text-center max-w-3xl mx-auto mb-14 sm:mb-20">
+		<div class="text-center max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-14">
 			<div class="flex items-center justify-center gap-4">
-				<div class="w-12 sm:w-20 h-[1.5px] bg-slate-300"></div>
-				<h2 class="text-3xl sm:text-4xl font-extrabold text-[#0e172e] tracking-tight">
+				<div class="w-12 sm:w-20 lg:w-24 h-[1.5px] bg-slate-300"></div>
+				<h2 class="text-[28px] sm:text-4xl lg:text-[42px] xl:text-[46px] font-extrabold text-[#0e172e] tracking-tight">
 					Nuestros Proyectos
 				</h2>
-				<div class="w-12 sm:w-20 h-[1.5px] bg-slate-300"></div>
+				<div class="w-12 sm:w-20 lg:w-24 h-[1.5px] bg-slate-300"></div>
 			</div>
-			<p class="text-base sm:text-lg text-slate-500 font-medium mt-3">
+			<p class="text-base sm:text-lg lg:text-[20px] xl:text-[21px] text-slate-500 font-medium mt-3">
 				Casos de Éxito y Soluciones Digitales en Lima y Perú
 			</p>
 		</div>
 
 		<!-- 3 Showcase Cards Grid -->
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+		<div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7 lg:gap-8">
 			
 			<!-- Card 1: Tienda e-Commerce (Multi-device view with Soles) -->
 			<div
-				class="group bg-white rounded-2xl p-5 shadow-[0_8px_25px_rgba(0,0,0,0.05)] hover:shadow-[0_18px_40px_rgba(0,102,255,0.14)] border border-slate-100 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col cursor-pointer"
+				class="group bg-white rounded-2xl p-6 sm:p-7 shadow-[0_8px_25px_rgba(0,0,0,0.05)] hover:shadow-[0_18px_40px_rgba(0,102,255,0.14)] border border-slate-100 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col cursor-pointer"
 				onclick={() => openProject(projects[0])}
 				onkeydown={(e) => e.key === 'Enter' && openProject(projects[0])}
 				role="button"
@@ -165,16 +168,16 @@
 
 				<!-- Label underneath image matching reference -->
 				<div class="mt-5 text-center">
-					<h3 class="text-xl font-bold text-[#0e172e] group-hover:text-blue-600 transition-colors">
+					<h3 class="text-xl sm:text-[22px] font-bold text-[#0e172e] group-hover:text-blue-600 transition-colors">
 						Tienda Virtual E-Commerce
 					</h3>
-					<p class="text-xs text-slate-500 mt-1">Plataforma con pagos rápidos Yape / Plin / Tarjetas</p>
+					<p class="text-sm sm:text-[15px] lg:text-[17px] text-slate-500 mt-1.5 leading-relaxed">Plataforma con pagos rápidos Yape / Plin / Tarjetas</p>
 				</div>
 			</div>
 
 			<!-- Card 2: Renovación Corporativa (Corporate Laptop view) -->
 			<div
-				class="group bg-white rounded-2xl p-5 shadow-[0_8px_25px_rgba(0,0,0,0.05)] hover:shadow-[0_18px_40px_rgba(0,102,255,0.14)] border border-slate-100 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col cursor-pointer"
+				class="group bg-white rounded-2xl p-6 sm:p-7 shadow-[0_8px_25px_rgba(0,0,0,0.05)] hover:shadow-[0_18px_40px_rgba(0,102,255,0.14)] border border-slate-100 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col cursor-pointer"
 				onclick={() => openProject(projects[1])}
 				onkeydown={(e) => e.key === 'Enter' && openProject(projects[1])}
 				role="button"
@@ -235,16 +238,16 @@
 
 				<!-- Label underneath image matching reference -->
 				<div class="mt-5 text-center">
-					<h3 class="text-xl font-bold text-[#0e172e] group-hover:text-blue-600 transition-colors">
+					<h3 class="text-xl sm:text-[22px] font-bold text-[#0e172e] group-hover:text-blue-600 transition-colors">
 						Renovación Web Corporativa
 					</h3>
-					<p class="text-xs text-slate-500 mt-1">Identidad digital y portal empresarial B2B</p>
+					<p class="text-sm sm:text-[15px] lg:text-[17px] text-slate-500 mt-1.5 leading-relaxed">Identidad digital y portal empresarial B2B</p>
 				</div>
 			</div>
 
 			<!-- Card 3: Campaña de Ads & Marketing -->
 			<div
-				class="group bg-white rounded-2xl p-5 shadow-[0_8px_25px_rgba(0,0,0,0.05)] hover:shadow-[0_18px_40px_rgba(0,102,255,0.14)] border border-slate-100 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col cursor-pointer"
+				class="group bg-white rounded-2xl p-6 sm:p-7 shadow-[0_8px_25px_rgba(0,0,0,0.05)] hover:shadow-[0_18px_40px_rgba(0,102,255,0.14)] border border-slate-100 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col cursor-pointer"
 				onclick={() => openProject(projects[2])}
 				onkeydown={(e) => e.key === 'Enter' && openProject(projects[2])}
 				role="button"
@@ -314,24 +317,24 @@
 
 				<!-- Label underneath image matching reference -->
 				<div class="mt-5 text-center">
-					<h3 class="text-xl font-bold text-[#0e172e] group-hover:text-blue-600 transition-colors">
+					<h3 class="text-xl sm:text-[22px] font-bold text-[#0e172e] group-hover:text-blue-600 transition-colors">
 						Campaña de Ads & Marketing
 					</h3>
-					<p class="text-xs text-slate-500 mt-1">Generación de prospectos y conversión en Perú</p>
+					<p class="text-sm sm:text-[15px] lg:text-[17px] text-slate-500 mt-1.5 leading-relaxed">Generación de prospectos y conversión en Perú</p>
 				</div>
 			</div>
 
 		</div>
 
 		<!-- Centered CTA Button -->
-		<div class="mt-14 text-center">
+		<div class="mt-10 sm:mt-12 text-center">
 			<button
 				type="button"
 				onclick={() => openProject(projects[0])}
-				class="cursor-pointer inline-flex items-center justify-center px-8 py-3.5 rounded-lg text-sm sm:text-base font-semibold text-white bg-gradient-to-r from-[#0066ff] to-[#0052cc] hover:from-[#0052cc] hover:to-[#0041b8] shadow-[0_4px_18px_rgba(0,102,255,0.4)] hover:shadow-[0_8px_25px_rgba(0,102,255,0.55)] transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
+				class="cursor-pointer inline-flex items-center justify-center px-8 py-3.5 rounded-xl text-base sm:text-[17px] font-semibold text-white bg-gradient-to-r from-[#0066ff] to-[#0052cc] hover:from-[#0052cc] hover:to-[#0041b8] shadow-[0_4px_18px_rgba(0,102,255,0.4)] hover:shadow-[0_8px_25px_rgba(0,102,255,0.55)] transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-200"
 			>
 				Ver Todos los Proyectos
-				<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<svg class="w-4.5 h-4.5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
 				</svg>
 			</button>

@@ -22,19 +22,22 @@
 </script>
 
 <svelte:head>
-	<title>NovaLyne | Agencia Digital en Lima, Perú | Desarrollo Web & Marketing</title>
+	<title>KINTI DEVELOPER | Desarrollo Web, Soluciones TI y Equipos Tecnológicos</title>
 </svelte:head>
 
-<div class="min-h-screen bg-white text-slate-800 flex flex-col font-['Plus_Jakarta_Sans',sans-serif]">
+<div class="min-h-screen bg-white text-slate-800 flex flex-col font-['Inter',sans-serif] overflow-x-hidden">
 	<!-- Fixed Header Navbar -->
 	<Navbar onOpenQuote={() => handleOpenQuote()} />
 
 	<main class="flex-1">
-		<!-- Hero Section with 3D Tech device composition -->
-		<Hero onDiscoverServices={() => {
-			const el = document.getElementById('services');
-			el?.scrollIntoView({ behavior: 'smooth' });
-		}} />
+		<!-- Hero Section -->
+		<Hero
+			onOpenQuote={() => handleOpenQuote()}
+			onDiscoverServices={() => {
+				const el = document.getElementById('services');
+				el?.scrollIntoView({ behavior: 'smooth' });
+			}}
+		/>
 
 		<!-- 3 Floating White Service Cards -->
 		<QuickServices onSelectService={(s) => handleOpenQuote(s)} />
